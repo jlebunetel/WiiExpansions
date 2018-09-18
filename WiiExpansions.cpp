@@ -20,18 +20,6 @@ WiiExpansion::WiiExpansion()
 };
 
 
-WiiNunchuk::WiiNunchuk()
-           :WiiExpansion()
-{
-
-};
-
-WiiClassicController::WiiClassicController()
-                     :WiiExpansion()
-{
-
-};
-
 // Public Methods //////////////////////////////////////////////////////////////
 // Functions available in WiiExpansions sketches, this library, and other libraries
 
