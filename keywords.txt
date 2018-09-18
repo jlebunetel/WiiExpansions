@@ -1,0 +1,34 @@
+#######################################
+# Syntax Coloring Map For WiiExpansions
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+WiiExpansions	KEYWORD1
+WiiNunchuk	KEYWORD1
+WiiClassicController	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+set	KEYWORD2
+get	KEYWORD2
+isPressed	KEYWORD2
+isReleased	KEYWORD2
+hasChanged	KEYWORD2
+isJustPressed	KEYWORD2
+isJustReleased	KEYWORD2
+init	KEYWORD2
+read	KEYWORD2
+print	KEYWORD2
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+
+#######################################
+# Constants (LITERAL1)
+#######################################
