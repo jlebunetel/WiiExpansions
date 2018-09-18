@@ -4,7 +4,7 @@ Arduino library to control Wii Remote expansion devices.
 ## Features
  * Provide an interface to use Wii Remote expansion devices such as :
      * Nunchuks;
-     * Classic Controleurs.
+     * Classic Controlers.
 
 ## Getting started
 
