@@ -33,9 +33,9 @@ void setup() {
 
 void loop() {
   // nunchuck update
-  manette.read();
+  nunchuck.read();
 
-  if(manette.A.isPressed()){
+  if(nunchuck.A.isPressed()){
     // do something when the button A is pressed
   }
 }
