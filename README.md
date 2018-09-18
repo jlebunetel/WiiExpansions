@@ -10,6 +10,14 @@ Arduino library to control Wii Remote expansion devices.
 
 [Download this repository](https://github.com/jlebunetel/WiiExpansions/archive/master.zip) and unzip it into the Arduino libraries folder on your computer. You should rename the folder `WiiExpansions-master` in `WiiExpansions`.
 
+
+## Connexions
+
+Wii Remote expansion devices use I2C as transportation protocol.
+Simply connect it to Arduino through A4 (SDA) and A5 (CLK) pins :
+
+![nunchuk-arduino-connect](img/nunchuk-arduino-connect.png)
+
 ### Simple example
 
 ``` c++
