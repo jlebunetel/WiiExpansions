@@ -221,5 +221,193 @@ void WiiClassicController::print()
   Serial.println(bumper_R.get());
 };
 
+
+
+void WiiGuitar::init()
+{
+  WiiExpansion::init();
+};
+
+void WiiGuitar::read()
+{
+  WiiExpansion::read();
+
+  // décodage des données
+  strum_bar_down.set( !(data[4] & (1<<6)) );
+  strum_bar_up.set( !(data[5] & (1<<0)) );
+  bridge.set( !(data[4] & (1<<4)) );
+  plus_button.set( !(data[4] & (1<<2)) );
+  green.set( !(data[5] & (1<<4)) );
+  red.set( !(data[5] & (1<<6)) );
+  yellow.set( !(data[5] & (1<<3)) );
+  blue.set( !(data[5] & (1<<5)) );
+  orange.set( !(data[5] & (1<<7)) );
+
+  stick_X.set( data[0] & B00111111 ); // 4/32/59
+  stick_Y.set( data[1] & B00111111 ); // 6/32/60
+  touch_bar.set( data[2] & B00011111 ); // 4/6/10/13/18/20/23/26/31 / 15
+  whammy_bar.set( data[3] & B00011111 ); // 15/25
+
+
+  switch(touch_bar.get()) {
+    case 4:
+      touch_bar_0.set(1);
+      touch_bar_1.set(0);
+      touch_bar_2.set(0);
+      touch_bar_3.set(0);
+      touch_bar_4.set(0);
+      touch_bar_5.set(0);
+      touch_bar_6.set(0);
+      touch_bar_7.set(0);
+      touch_bar_8.set(0);
+      break;
+    case 6:
+      touch_bar_0.set(0);
+      touch_bar_1.set(1);
+      touch_bar_2.set(0);
+      touch_bar_3.set(0);
+      touch_bar_4.set(0);
+      touch_bar_5.set(0);
+      touch_bar_6.set(0);
+      touch_bar_7.set(0);
+      touch_bar_8.set(0);
+      break;
+    case 10:
+      touch_bar_0.set(0);
+      touch_bar_1.set(0);
+      touch_bar_2.set(1);
+      touch_bar_3.set(0);
+      touch_bar_4.set(0);
+      touch_bar_5.set(0);
+      touch_bar_6.set(0);
+      touch_bar_7.set(0);
+      touch_bar_8.set(0);
+      break;
+    case 13:
+      touch_bar_0.set(0);
+      touch_bar_1.set(0);
+      touch_bar_2.set(0);
+      touch_bar_3.set(1);
+      touch_bar_4.set(0);
+      touch_bar_5.set(0);
+      touch_bar_6.set(0);
+      touch_bar_7.set(0);
+      touch_bar_8.set(0);
+      break;
+    case 18:
+      touch_bar_0.set(0);
+      touch_bar_1.set(0);
+      touch_bar_2.set(0);
+      touch_bar_3.set(0);
+      touch_bar_4.set(1);
+      touch_bar_5.set(0);
+      touch_bar_6.set(0);
+      touch_bar_7.set(0);
+      touch_bar_8.set(0);
+      break;
+    case 20:
+      touch_bar_0.set(0);
+      touch_bar_1.set(0);
+      touch_bar_2.set(0);
+      touch_bar_3.set(0);
+      touch_bar_4.set(0);
+      touch_bar_5.set(1);
+      touch_bar_6.set(0);
+      touch_bar_7.set(0);
+      touch_bar_8.set(0);
+      break;
+    case 23:
+      touch_bar_0.set(0);
+      touch_bar_1.set(0);
+      touch_bar_2.set(0);
+      touch_bar_3.set(0);
+      touch_bar_4.set(0);
+      touch_bar_5.set(0);
+      touch_bar_6.set(1);
+      touch_bar_7.set(0);
+      touch_bar_8.set(0);
+      break;
+    case 26:
+      touch_bar_0.set(0);
+      touch_bar_1.set(0);
+      touch_bar_2.set(0);
+      touch_bar_3.set(0);
+      touch_bar_4.set(0);
+      touch_bar_5.set(0);
+      touch_bar_6.set(0);
+      touch_bar_7.set(1);
+      touch_bar_8.set(0);
+      break;
+    case 31:
+      touch_bar_0.set(0);
+      touch_bar_1.set(0);
+      touch_bar_2.set(0);
+      touch_bar_3.set(0);
+      touch_bar_4.set(0);
+      touch_bar_5.set(0);
+      touch_bar_6.set(0);
+      touch_bar_7.set(0);
+      touch_bar_8.set(1);
+      break;
+    default:
+      touch_bar_0.set(0);
+      touch_bar_1.set(0);
+      touch_bar_2.set(0);
+      touch_bar_3.set(0);
+      touch_bar_4.set(0);
+      touch_bar_5.set(0);
+      touch_bar_6.set(0);
+      touch_bar_7.set(0);
+      touch_bar_8.set(0);
+      break;
+  }
+
+};
+
+void WiiGuitar::print()
+{
+  Serial.print("Strum Bar Down .. ");
+  Serial.println(strum_bar_down.get());
+
+  Serial.print("Strum Bar Up .... ");
+  Serial.println(strum_bar_up.get());
+
+  Serial.print("Bridge .......... ");
+  Serial.println(bridge.get());
+
+  Serial.print("Plus ............ ");
+  Serial.println(plus_button.get());
+
+  Serial.print("Green ........... ");
+  Serial.println(green.get());
+
+  Serial.print("Red ............. ");
+  Serial.println(red.get());
+
+  Serial.print("Yellow .......... ");
+  Serial.println(yellow.get());
+
+  Serial.print("Blue ............ ");
+  Serial.println(blue.get());
+
+  Serial.print("Orange .......... ");
+  Serial.println(orange.get());
+
+
+  Serial.print("Stick X ......... ");
+  Serial.println(stick_X.get());
+
+  Serial.print("Stick Y ......... ");
+  Serial.println(stick_Y.get());
+
+
+  Serial.print("Touch Bar ....... ");
+  Serial.println(touch_bar.get());
+
+  Serial.print("Whammy Bar ...... ");
+  Serial.println(whammy_bar.get());
+};
+
+
 // Private Methods /////////////////////////////////////////////////////////////
 // Functions only available to other functions in this library

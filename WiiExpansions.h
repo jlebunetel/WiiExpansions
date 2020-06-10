@@ -63,7 +63,7 @@ class WiiNunchuk : public WiiExpansion
 {
   // user-accessible "public" interface
   public:
-    Nunchuk();
+    // WiiNunchuk();
     void init();
     void read();
     void print();
@@ -84,7 +84,7 @@ class WiiClassicController : public WiiExpansion
 {
   // user-accessible "public" interface
   public:
-    WiiClassicController();
+    //WiiClassicController();
     void init();
     void read();
     void print();
@@ -115,6 +115,47 @@ class WiiClassicController : public WiiExpansion
     Potentiometer stick_RY;
     Potentiometer bumper_L;
     Potentiometer bumper_R;
+};
+
+
+
+class WiiGuitar : public WiiExpansion
+{
+  // user-accessible "public" interface
+  public:
+    // WiiGuitar();
+    void init();
+    void read();
+    void print();
+
+    Button strum_bar_down;
+    Button strum_bar_up;
+
+    Button bridge;
+    Button plus_button;
+
+    Button green;
+    Button red;
+    Button yellow;
+    Button blue;
+    Button orange;
+
+    Potentiometer stick_X;
+    Potentiometer stick_Y;
+
+    Potentiometer touch_bar;
+
+    Potentiometer whammy_bar;
+
+    Button touch_bar_0;
+    Button touch_bar_1;
+    Button touch_bar_2;
+    Button touch_bar_3;
+    Button touch_bar_4;
+    Button touch_bar_5;
+    Button touch_bar_6;
+    Button touch_bar_7;
+    Button touch_bar_8;
 };
 
 #endif
